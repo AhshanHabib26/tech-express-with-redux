@@ -8,7 +8,7 @@ import {
 import Styles from '../styles/ProductCard.module.css';
 
 const ProductCard = ({ product }) => {
-  const { model, image, keyFeature, price, rating } = product;
+  const { model, image, keyFeature, price, rating, quantity } = product;
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
@@ -16,6 +16,7 @@ const ProductCard = ({ product }) => {
     <div className="mt-3 px-4">
       <div className={Styles.PRWrapper}>
         <div className={Styles.PRContainer}>
+         { pathname.includes('cart') && <h1 className={Styles.countBadge}>{quantity}</h1>}
           <div className={Styles.imageContainer}>
             <img src={image} alt="" />
           </div>

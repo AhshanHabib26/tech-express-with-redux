@@ -2,6 +2,7 @@
 .PRContainer{
     border-radius: 20px;
     border: 1px dashed rgb(226, 226, 226);
+    position: relative;
 }
 .imageContainer{
    display: flex;
@@ -62,5 +63,18 @@
 }
 .btnContainer .buyNow button{
     background-color: #0a99ec;
+    color: #fff;
+}
+.countBadge{
+    position: absolute;
+    border-radius: 100%;
+    font-size: 18px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    padding-top: 7px;
+    top: 10px;
+    background-color: #ff6347;
     color: #fff;
 }

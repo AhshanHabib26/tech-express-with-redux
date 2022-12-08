@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ProductCard from '../components/ProductCard';
-import Styles from '../styles/Home.module.css'
+import Styles from '../styles/Home.module.css';
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -10,9 +10,11 @@ const Cart = () => {
 
   return (
     <div className={Styles.HContainer}>
-      {cart.map((product) => (
-        <ProductCard product={product} />
-      ))}
+      {cart
+        .sort((a, b) => a._id - b._id)
+        .map((product) => (
+          <ProductCard product={product} />
+        ))}
     </div>
   );
 };

@@ -1,9 +1,17 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import {
+  addToCart,
+  removeToCart,
+} from '../redux/actionDispatch/productDispatch';
 import Styles from '../styles/ProductCard.module.css';
-
 
 const ProductCard = ({ product }) => {
   const { model, image, keyFeature, price, rating } = product;
+  const dispatch = useDispatch();
+  const { pathname } = useLocation();
+
   return (
     <div className="mt-3 px-4">
       <div className={Styles.PRWrapper}>
@@ -29,9 +37,20 @@ const ProductCard = ({ product }) => {
               ))}
             </div>
             <div className={Styles.btnContainer}>
-              <div className={Styles.addToCart}>
-                <button>Add to Cart</button>
-              </div>
+              {!pathname.includes('cart') && (
+                <div className={Styles.addToCart}>
+                  <button onClick={() => dispatch(addToCart(product))}>
+                    Add to Cart
+                  </button>
+                </div>
+              )}
+              {pathname.includes('cart') && (
+                <div className={Styles.addToCart}>
+                  <button onClick={() => dispatch(removeToCart(product))}>
+                    Remove Cart
+                  </button>
+                </div>
+              )}
               <div className={Styles.buyNow}>
                 <button>Buy Now</button>
               </div>

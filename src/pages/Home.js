@@ -4,6 +4,8 @@ import Styles from '../styles/Home.module.css'
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+
+  
   useEffect(() => {
     fetch('products.json')
       .then((res) => res.json())

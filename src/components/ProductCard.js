@@ -1,6 +1,6 @@
 import React from 'react';
 import Styles from '../styles/ProductCard.module.css';
-import { BsFillCartCheckFill } from 'react-icons/bs';
+
 
 const ProductCard = ({ product }) => {
   const { model, image, keyFeature, price, rating } = product;
